@@ -1,0 +1,56 @@
+:root {
+  --bg-color: #242424;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  overflow: hidden;
+  user-select: none; /* Prevents accidental text selection */
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px; /* Enables 3D effect */
+  cursor: grab;
+}
+
+.wrapper:active {
+  cursor: grabbing;
+}
+
+.sun {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d; /* Allows 3D depth */
+}
+
+.sun-face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, yellow, orange);
+  border: 2px solid rgba(255, 165, 0, 0.6);
+  box-shadow: inset 0 0 20px rgba(255, 140, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Position each face of the cube */
+.front  { transform: translateZ(75px); }
+.back   { transform: rotateY(180deg) translateZ(75px); }
+.left   { transform: rotateY(-90deg) translateZ(75px); }
+.right  { transform: rotateY(90deg) translateZ(75px); }
+.top    { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
