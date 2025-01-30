@@ -23,13 +23,16 @@ body {
   cursor: grabbing;
 }
 
+.solar-system {
+  transform-style: preserve-3d;
+}
+
 /* Adjust the size of the sun */
 .sun {
   width: 100px; /* Adjust the width */
   height: 100px; /* Adjust the height */
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(0deg) rotateY(0deg);
 }
 
 .sun-face {
@@ -52,12 +55,3 @@ body {
 .right  { transform: rotateY(90deg) translateZ(50px); }
 .top    { transform: rotateX(90deg) translateZ(50px); }
 .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-
-
-
-
-
-
-
-

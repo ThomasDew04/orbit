@@ -21,13 +21,13 @@ function SolarSystem() {
 
     const deltaX = event.clientX - lastMousePosition.current.x;
     const deltaY = event.clientY - lastMousePosition.current.y;
-    const rotationSpeed = 0.5;
-
+    const rotationSpeed = 0.25; // Reduced speed
+    
     setRotation((prev) => ({
       x: prev.x - deltaY * rotationSpeed,
-      y: prev.y + deltaX * rotationSpeed,
+      y: prev.y - deltaX * rotationSpeed, // Inverted sign
     }));
-
+    
     lastMousePosition.current = { x: event.clientX, y: event.clientY };
   };
 
@@ -39,7 +39,15 @@ function SolarSystem() {
       onMouseLeave={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
-      <Sun rotation={rotation} />
+      <div
+        className="solar-system"
+        style={{
+          transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+        }}
+      >
+        <Sun />
+        {/* Add other elements here */}
+      </div>
     </div>
   );
 }
