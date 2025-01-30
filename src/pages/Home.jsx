@@ -1,9 +1,9 @@
-import Sun from "../components/Sun";
+import SolarSystem from "../components/SolarSystem";
 
 function Home() {
   return (
     <div>
-      <Sun />
+      <SolarSystem />
     </div>
   );
 }

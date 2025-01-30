@@ -23,34 +23,41 @@ body {
   cursor: grabbing;
 }
 
+/* Adjust the size of the sun */
 .sun {
-  width: 150px;
-  height: 150px;
+  width: 100px; /* Adjust the width */
+  height: 100px; /* Adjust the height */
   position: relative;
-  transform-style: preserve-3d; /* Allows 3D depth */
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
 }
 
 .sun-face {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 100px; /* Adjust the width */
+  height: 100px; /* Adjust the height */
   background: linear-gradient(45deg, yellow, orange);
   border: 2px solid rgba(255, 165, 0, 0.6);
-  box-shadow: inset 0 0 20px rgba(255, 140, 0, 0.8);
+  filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.8)); /* Add rounded glow effect */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  opacity: 0.9;
+  box-sizing: border-box;
 }
 
 /* Position each face of the cube */
-.front  { transform: translateZ(75px); }
-.back   { transform: rotateY(180deg) translateZ(75px); }
-.left   { transform: rotateY(-90deg) translateZ(75px); }
-.right  { transform: rotateY(90deg) translateZ(75px); }
-.top    { transform: rotateX(90deg) translateZ(75px); }
-.bottom { transform: rotateX(-90deg) translateZ(75px); }
+.front  { transform: translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+
+
+
+
+
+
+
+
