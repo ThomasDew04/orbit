@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
-import Sun from "./Sun";
-import Mercury from "./Mercury";
+import Sun from "../components/Sun";
+import Mercury from "../components/Mercury";
+import Venus from "../components/Venus";
 
 function SolarSystem() {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -47,6 +48,7 @@ function SolarSystem() {
       >
         <Sun />
         <Mercury />
+        <Venus />
 
       </div>
     </div>
