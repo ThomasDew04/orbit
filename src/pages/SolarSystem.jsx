@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import Sun from "../components/Sun";
 import Mercury from "../components/Mercury";
 import Venus from "../components/Venus";
+import Earth from "../components/Earth";
+import Mars from "../components/Mars";
+import Jupiter from "../components/Jupiter";
 
 function SolarSystem() {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -49,6 +52,9 @@ function SolarSystem() {
         <Sun />
         <Mercury />
         <Venus />
+        <Earth />
+        <Mars />
+        <Jupiter />
 
       </div>
     </div>

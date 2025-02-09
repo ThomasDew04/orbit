@@ -44,7 +44,7 @@ body {
   position: absolute;
   width: 100px; /* Adjust the width */
   height: 100px; /* Adjust the height */
-  background: linear-gradient(45deg, yellow, orange);
+  background: linear-gradient(45deg, rgb(255, 200, 0), orange);
   border: 2px solid rgba(255, 165, 0, 0.6);
   filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.8)); /* Add rounded glow effect */
   display: flex;
@@ -97,6 +97,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, rgb(172, 167, 167), rgb(150, 132, 132));
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); /* Light glow effect */
 }
 
 /* Position each face of the cube */
@@ -143,6 +144,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, rgb(255, 153, 0), rgb(156, 85, 23));
+  filter: drop-shadow(0 0 5px rgba(184, 117, 17, 0.8)); /* Light glow effect */
 }
 
 /* Position each face of the cube */
@@ -152,3 +154,194 @@ body {
 .venus-orbit .right  { transform: rotateY(90deg) translateZ(10px); }
 .venus-orbit .top    { transform: rotateX(90deg) translateZ(10px); }
 .venus-orbit .bottom { transform: rotateX(-90deg) translateZ(10px); }
+
+.earth-orbit {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg);
+  box-shadow: 0px -10px 20px rgba(255, 255, 255, 0.1) inset; /* Lichteffect */
+}
+
+.earth {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateX(275px); /* Position Venus on orbit */
+  animation: orbit-earth 90s linear infinite;
+}
+
+.earth-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgb(20, 101, 0), rgb(34, 23, 156));
+  filter: drop-shadow(0 0 5px rgba(7, 43, 97, 0.8)); /* Light glow effect */
+}
+
+/* Position each face of the cube */
+.earth-orbit .front  { transform: translateZ(12.5px); }
+.earth-orbit .back   { transform: rotateY(180deg) translateZ(12.5px); }
+.earth-orbit .left   { transform: rotateY(-90deg) translateZ(12.5px); }
+.earth-orbit .right  { transform: rotateY(90deg) translateZ(12.5px); }
+.earth-orbit .top    { transform: rotateX(90deg) translateZ(12.5px); }
+.earth-orbit .bottom { transform: rotateX(-90deg) translateZ(12.5px); }
+
+@keyframes orbit-earth {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(275px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(275px) rotate(-360deg);
+  }
+}
+
+/* Moon orbit around Earth */
+.moon-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;  /* Moon orbit size */
+  height: 80px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) translateZ(15px);
+  transform-style: preserve-3d;
+}
+
+/* Moon */
+.moon {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateX(40px); /* Position Moon on orbit */
+  animation: orbit-moon 27.3s linear infinite; /* Moon orbit animation */
+}
+
+.moon-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle highlight */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); /* Light glow effect */
+}
+
+/* Position each face of the cube */
+.moon .front  { transform: translateZ(4px); }
+.moon .back   { transform: rotateY(180deg) translateZ(4px); }
+.moon .left   { transform: rotateY(-90deg) translateZ(4px); }
+.moon .right  { transform: rotateY(90deg) translateZ(4px); }
+.moon .top    { transform: rotateX(90deg) translateZ(4px); }
+.moon .bottom { transform: rotateX(-90deg) translateZ(4px); }
+
+@keyframes orbit-moon {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(40px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(40px) rotate(-360deg);
+  }
+}
+
+.mars-orbit {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg);
+  box-shadow: 0px -10px 20px rgba(255, 255, 255, 0.1) inset; /* Lichteffect */
+}
+
+.mars {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateX(325px); /* Position Venus on orbit */
+  animation: orbit-mars 110s linear infinite; /* Nog aan te passen aan actuale snelheid */
+}
+
+.mars-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgb(223, 6, 6), rgb(166, 39, 0));
+  filter: drop-shadow(0 0 5px rgba(208, 60, 60, 0.8)); /* Light glow effect */
+}
+
+/* Position each face of the cube */
+.mars-orbit .front  { transform: translateZ(11px); }
+.mars-orbit .back   { transform: rotateY(180deg) translateZ(11px); }
+.mars-orbit .left   { transform: rotateY(-90deg) translateZ(11px); }
+.mars-orbit .right  { transform: rotateY(90deg) translateZ(11px); }
+.mars-orbit .top    { transform: rotateX(90deg) translateZ(11px); }
+.mars-orbit .bottom { transform: rotateX(-90deg) translateZ(11px); }
+
+@keyframes orbit-mars {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(325px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(325px) rotate(-360deg);
+  }
+}
+
+.jupiter-orbit {
+  position: absolute;
+  width: 850px;
+  height: 850px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg);
+  box-shadow: 0px -10px 20px rgba(255, 255, 255, 0.1) inset; /* Lichteffect */
+}
+
+.jupiter {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateX(425px); /* Position Venus on orbit */
+  animation: orbit-jupiter 200s linear infinite; /* Nog aan te passen aan actuale snelheid */
+}
+
+.jupiter-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgb(156, 125, 92), rgb(103, 82, 51));
+  filter: drop-shadow(0 0 5px rgba(131, 107, 58, 0.8)); /* Light glow effect */
+}
+
+/* Position each face of the cube */
+.jupiter-orbit .front  { transform: translateZ(20px); }
+.jupiter-orbit .back   { transform: rotateY(180deg) translateZ(20px); }
+.jupiter-orbit .left   { transform: rotateY(-90deg) translateZ(20px); }
+.jupiter-orbit .right  { transform: rotateY(90deg) translateZ(20px); }
+.jupiter-orbit .top    { transform: rotateX(90deg) translateZ(20px); }
+.jupiter-orbit .bottom { transform: rotateX(-90deg) translateZ(20px); }
+
+@keyframes orbit-jupiter {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(425px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(425px) rotate(-360deg);
+  }
+}
