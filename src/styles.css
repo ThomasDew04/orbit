@@ -318,7 +318,7 @@ body {
   left: 50%;
   transform-style: preserve-3d;
   transform: translate(-50%, -50%) translateX(425px); /* Position Venus on orbit */
-  animation: orbit-jupiter 200s linear infinite; /* Nog aan te passen aan actuale snelheid */
+  animation: orbit-jupiter 240s linear infinite; /* Nog aan te passen aan actuale snelheid */
 }
 
 .jupiter-face {
@@ -344,4 +344,62 @@ body {
   to {
     transform: translate(-50%, -50%) rotate(360deg) translateX(425px) rotate(-360deg);
   }
+}
+
+.saturn-orbit {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg);
+  box-shadow: 0px -10px 20px rgba(255, 255, 255, 0.1) inset; /* Lichteffect */
+}
+
+.saturn {
+  width: 34px;
+  height: 34px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translateX(500px); /* Position Venus on orbit */
+  animation: orbit-saturn 280s linear infinite; /* Nog aan te passen aan actuale snelheid */
+}
+
+.saturn-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(207, 169, 135);
+  filter: drop-shadow(0 0 5px rgba(93, 85, 68, 0.8)); /* Light glow effect */
+}
+
+/* Position each face of the cube */
+.saturn-orbit .front  { transform: translateZ(17px); }
+.saturn-orbit .back   { transform: rotateY(180deg) translateZ(17px); }
+.saturn-orbit .left   { transform: rotateY(-90deg) translateZ(17px); }
+.saturn-orbit .right  { transform: rotateY(90deg) translateZ(17px); }
+.saturn-orbit .top    { transform: rotateX(90deg) translateZ(17px); }
+.saturn-orbit .bottom { transform: rotateX(-90deg) translateZ(17px); }
+
+@keyframes orbit-saturn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(500px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(500px) rotate(-360deg);
+  }
+}
+
+.saturn-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75px;
+  height: 75px;
+  border: 9px solid rgba(210, 180, 140, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(30deg);
 }

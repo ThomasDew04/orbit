@@ -5,6 +5,7 @@ import Venus from "../components/Venus";
 import Earth from "../components/Earth";
 import Mars from "../components/Mars";
 import Jupiter from "../components/Jupiter";
+import Saturn from "../components/Saturn";
 
 function SolarSystem() {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -55,6 +56,7 @@ function SolarSystem() {
         <Earth />
         <Mars />
         <Jupiter />
+        <Saturn />
 
       </div>
     </div>
