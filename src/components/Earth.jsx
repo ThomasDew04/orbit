@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 function Earth() {
     return (
         <div className="earth-orbit">
-            <div className="earth">
+            <Link className="earth" to={`/earth`}>
                 <div className="earth-face front"></div>
                 <div className="earth-face back"></div>
                 <div className="earth-face left"></div>
@@ -20,7 +21,7 @@ function Earth() {
                         <div className="moon-face bottom"></div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }

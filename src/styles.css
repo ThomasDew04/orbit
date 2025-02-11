@@ -85,7 +85,8 @@ body {
     radial-gradient(6px 6px at 92% 86%, rgba(255, 255, 255, 0.9), transparent);
   margin: 0;
   overflow: hidden;
-  user-select: none; /* Prevents accidental text selection */
+  user-select: none;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -246,6 +247,7 @@ body {
 }
 
 .earth {
+  display: block;
   width: 25px;
   height: 25px;
   position: relative;
