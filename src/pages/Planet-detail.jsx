@@ -1,24 +1,12 @@
-// Planet detail page:
-// Detailed information is shown for each planet using 
-// this API: https://api.le-systeme-solaire.net/rest/bodies/{planet}
-
-// Info shown:
-// - English name of the planet
-// - Mass
-// - Size
-// - Gravity
-// - Temperature
-// - Density
-// - Distance from the Sun
-// - Revolution period
-// - Amount of moons
-
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import planetInfo from '../data/planet-info';
 
 const PlanetDetail = () => {
     const { planet } = useParams();
+    const navigate = useNavigate();
     const [planetData, setPlanetData] = useState(null);
+    const planetAdditionalInfo = planetInfo.find((p) => p.name.toLowerCase() === planet);
     
     useEffect(() => {
         fetch(`https://api.le-systeme-solaire.net/rest/bodies/${planet}`)
@@ -31,16 +19,36 @@ const PlanetDetail = () => {
     }
     
     return (
-        <div className="planet-detail">
-            <h1>{planetData.englishName}</h1>
-            <p>Mass: {planetData.mass.massValue} {planetData.mass.massExponent} kg</p>
-            <p>Size: {planetData.meanRadius} km</p>
-            <p>Gravity: {planetData.gravity} m/s²</p>
-            <p>Temperature: {planetData.avgTemp} K</p>
-            <p>Density: {planetData.density} g/cm³</p>
-            <p>Distance from the Sun: {planetData.semimajorAxis} km</p>
-            <p>Revolution period: {planetData.sideralOrbit} days</p>
-            <p>Amount of moons: {planetData.moons ? planetData.moons.length : 0}</p>
+        <div className='planet-detail'>
+            <button className='back-button' onClick={() => navigate(-1)}>Go back</button>
+            <h2>{planetData.englishName}</h2>
+            <p className='descr'>{planetAdditionalInfo.description}</p>
+            <h4>General information:</h4>
+            <div className='general-info'>
+                <div className='info-labels'>
+                    <p>Mass:</p>
+                    <p>Size:</p>
+                    <p>Gravity:</p>
+                    <p>Temperature:</p>
+                    <p>Density:</p>
+                    <p>Distance from the Sun:</p>
+                    <p>Revolution period:</p>
+                    <p>Amount of moons:</p>
+                </div>
+                <div className='info-values'>
+                    <p>{planetData.mass.massValue} {planetData.mass.massExponent} kg</p>
+                    <p>{planetData.meanRadius} km</p>
+                    <p>{planetData.gravity} m/s²</p>
+                    <p>{Math.round(planetData.avgTemp - 273.15)}°C</p>
+                    <p>{planetData.density} g/cm³</p>
+                    <p>{planetData.semimajorAxis} km</p>
+                    <p>{planetData.sideralOrbit} days</p>
+                    <p>{planetData.moons ? planetData.moons.length : 0}</p>
+                </div>
+            </div>
+            <div className='planet-image'>
+                <img src={planetAdditionalInfo.image} alt={planet} />
+            </div>
         </div>
     );
 };

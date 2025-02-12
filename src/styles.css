@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Jaldi:wght@400;700&display=swap');
+
 :root {
   --bg-color: #242424;
 }
@@ -153,6 +156,7 @@ body {
 }
 
 .mercury {
+  display: block;
   width: 15px;
   height: 15px;
   transform-style: preserve-3d;
@@ -200,6 +204,7 @@ body {
 }
 
 .venus {
+  display: block;
   width: 20px;
   height: 20px;
   transform-style: preserve-3d;
@@ -345,6 +350,7 @@ body {
 }
 
 .mars {
+  display: block;
   width: 22px;
   height: 22px;
   position: relative;
@@ -392,6 +398,7 @@ body {
 }
 
 .jupiter {
+  display: block;
   width: 40px;
   height: 40px;
   position: relative;
@@ -439,6 +446,7 @@ body {
 }
 
 .saturn {
+  display: block;
   width: 34px;
   height: 34px;
   position: relative;
@@ -497,6 +505,7 @@ body {
 }
 
 .uranus {
+  display: block;
   width: 30px;
   height: 30px;
   position: relative;
@@ -544,6 +553,7 @@ body {
 }
 
 .neptune {
+  display: block;
   width: 28px;
   height: 28px;
   position: relative;
@@ -577,4 +587,141 @@ body {
   to {
     transform: translate(-50%, -50%) rotate(360deg) translateX(625px) rotate(-360deg);
   }
+}
+
+/* PLanet detail page */
+
+.planet-detail {
+  position: relative;
+}
+
+.planet-image {
+  position: absolute;
+  right: -5%;
+  object-fit: cover;
+  transform: translateY(53%) scale(2); 
+}
+
+.planet-image::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px; 
+  height: 550px; 
+  background-color: rgba(116, 100, 100, 0.25);
+  border-radius: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: -1; 
+} 
+
+.back-button {
+  position: absolute;
+  top: 30px; 
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4); 
+  background: none; 
+  border: none;
+  text-decoration: underline 2px; 
+  text-underline-offset: 10px; 
+  letter-spacing: 15%;
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: rgba(255, 255, 255, 0.7); /* Change text color to 70% opacity on hover */
+}
+
+.back-button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7); /* Underline color with 70% opacity */
+  transition: width 0.3s ease;
+  margin-top: 6px; /* Adjust the space between text and underline */
+}
+
+.back-button:hover::after {
+  width: 100%; /* Expand underline to full width on hover */
+}
+
+.planet-detail h2 {
+  font-family: "Italiana", serif;
+  font-size: 100px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 50px; 
+  left: 110px; 
+}
+
+.planet-detail h2::after {
+  content: '';
+  display: block;
+  width: calc(100% + 150px); /* Extend underline 20px further on the right side */
+  height: 3px;
+  background: #FFFFFF; /* Underline color */
+  margin-top: 4px;
+}
+
+.planet-detail .descr {
+  position: absolute;
+  font-family: "Jaldi", serif;
+  font-size: 32px;
+  color: #FFFFFF;
+  top: 280px; 
+  left: 110px; 
+  width: 1000px;
+  opacity: 60%;
+  line-height: 45px;
+}
+
+.planet-detail h4 {
+  position: absolute;
+  left: 110px;
+  top: 420px;
+  font-family: 'Italiana', serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-size: 48px;
+}
+
+.general-info {
+  position: absolute;
+  top: 550px;
+  left: 110px;
+  height: fit-content;
+  width: 700px;
+  margin: 20px 0;
+}
+
+.info-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  z-index: 1;
+  font-weight: 700;
+}
+
+.info-values {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: right; 
+  z-index: 0;
+}
+
+.info-labels p, .info-values p {
+  margin: 5px 0;
+  font-family: 'Jaldi', serif;
+  font-size: 25px;
+  color: #FFFFFF;
+  opacity: 70%;
+  font-weight: inherit;
 }
