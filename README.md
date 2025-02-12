@@ -5,5 +5,5 @@ A 3D model of our solar system
 
 ```bash
 npm install
-npm run dev
+npm start
 ``` 
